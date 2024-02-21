@@ -1,3 +1,4 @@
 echo "testing"
 echo "testing from remote"
 echo "testimg from local merge"
+echo "testing changes commit "
