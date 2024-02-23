@@ -1,0 +1,17 @@
+name: contextstring display
+on: 
+push
+jobs:
+dump_context_tolog
+runs-on: unbuntu-latest
+steps:
+-name: dump github context
+env:
+GITHUB_CONTEXT:${{tojason(github)}}
+run:
+echo "$GITHUB_CONTEXT"
+-name: dump job context
+env: 
+JOB_CONTEXT:${{tojason(job)}}
+run:
+echo "$JOB_CONTEXT"
