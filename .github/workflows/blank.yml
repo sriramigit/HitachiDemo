@@ -27,7 +27,13 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
-        run: echo Hello, world!
+        run: |
+          i=1
+          while [ $i -le 10 ]
+          do
+          echo $i
+          i=$(($i+1))
+          done
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
