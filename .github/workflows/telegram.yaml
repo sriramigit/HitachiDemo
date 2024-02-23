@@ -1,0 +1,19 @@
+name: "Issues"
+on: 
+ issues:
+    types: [opened,closed]
+jobs:
+  prints:
+    runs-on: ubuntu-latest
+    steps:              
+      - name: Telegram Message Notify              
+        uses: appleboy/telegram-action@v0.1.1
+        with:
+          to: ${{ secrets.TELEGRAM_TO }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          message: "New commit pushed to repository"
+      - name: View issue information
+        run: |
+          echo "Issue title: ${{ github.event.issue.title }}"
+          echo "Issue body: ${{ github.event.issue.body }}"
+        
